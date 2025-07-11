@@ -1,12 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>listagem de produtos</title>
+    <link rel="stylesheet"  th:href="@{css/style.css}">
 </head>
 <body>
+    <div class="container">
     <h1>listagem de produtos</h1>
-    
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Preço</th>
+        </thead>
+        <tbody>
+            <tr th:each="produto : ${todosOsProdutos}">
+                <td th:text="${produto.id}">id do produto</td>
+                <td th:text="${produto.nome}">nome do produto</td>
+                <td th:text="${produto.preco}"> preço do produto</td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/cadastro}">cadastrar novo produto </a>
+</div>
 </body>
 </html>
